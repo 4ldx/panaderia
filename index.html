@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Miga & Miel | Panadería & Repostería Artesanal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Top Bar Infobar -->
+  <div class="top-bar">
+    <span>✨ Recién horneado a las 7:00 AM y 4:00 PM | Pedidos para eventos disponibles</span>
+  </div>
+
+  <!-- Encabezado Principal -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#home" class="brand">
+        <span class="brand-sub">Artisanal Bakery</span>
+        Miga & Miel
+      </a>
+      <nav class="nav-menu">
+        <a href="#home">Inicio</a>
+        <a href="#menu">Surtido</a>
+        <a href="#experiencia">Nuestra Esencia</a>
+        <a href="#pedido" class="nav-btn">Encargar Ahora</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section con fondo cinematográfico -->
+    <section class="hero" id="home">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <span class="badge-gold">Tradición y Sabor</span>
+        <h1>El placer del pan recién horneado</h1>
+        <p class="hero-subtitle">Elaborado diariamente con masa madre natural, mantequilla de primera y fermentación lenta de 24 horas.</p>
+        <div class="hero-actions">
+          <a href="#menu" class="btn-gold">Explorar Menú</a>
+          <a href="#pedido" class="btn-outline">Hacer Pedido Directo</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Barra de Ventajas / Confianza -->
+    <section class="features-bar">
+      <div class="feature-item">
+        <div class="feature-icon">🌾</div>
+        <div>
+          <h4>100% Orgánico</h4>
+          <p>Harinas seleccionadas sin aditivos</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🔥</div>
+        <div>
+          <h4>Horneo Diario</h4>
+          <p>Dos horneadas al día garantizadas</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🛵</div>
+        <div>
+          <h4>Entrega Express</h4>
+          <p>Pedido directo a tu mesa o evento</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección del Menú / Catálogo -->
+    <section class="bakery-section" id="menu">
+      <div class="section-title">
+        <span class="sub-heading">Edición Diaria</span>
+        <h2>Nuestra Selección de Hoy</h2>
+        <div class="divider"></div>
+        <p class="section-desc">Toca o haz clic en las piezas que deseas ordenar para armar tu caja personalizada.</p>
+      </div>
+
+      <div class="bakery-grid">
+
+        <!-- Producto 1 -->
+        <article class="bakery-card" data-product="Croissant de Mantequilla" data-price="35">
+          <div class="card-image">
+            <span class="card-badge top-seller">⭐ Más Vendido</span>
+            <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=800&q=80" alt="Croissant artesanal" loading="lazy">
+          </div>
+          <div class="card-body">
+            <span class="category">Hojaldre Premium</span>
+            <h3>Croissant de Mantequilla</h3>
+            <p>Hojaldre francés crujiente con láminas de mantequilla europea y alveolado perfecto.</p>
+            <div class="card-footer">
+              <span class="price">$35 <small>MXN</small></span>
+              <button type="button" class="select-btn">Añadir al pedido</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Producto 2 -->
+        <article class="bakery-card" data-product="Concha Tradicional de Vainilla" data-price="20">
+          <div class="card-image">
+            <span class="card-badge classic">Tradicional</span>
+            <img src="https://images.unsplash.com/photo-1586444248902-2f64eddc13df?auto=format&fit=crop&w=800&q=80" alt="Concha de pan dulce" loading="lazy">
+          </div>
+          <div class="card-body">
+            <span class="category">Pan Dulce Mexicano</span>
+            <h3>Concha de Vainilla y Chocolate</h3>
+            <p>Masa brioche esponjosa aromatizada con ralladura de naranja y costra de azucar fina.</p>
+            <div class="card-footer">
+              <span class="price">$20 <small>MXN</small></span>
+              <button type="button" class="select-btn">Añadir al pedido</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Producto 3 -->
+        <article class="bakery-card" data-product="Chocolatín con Chocolate Belga" data-price="38">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec?auto=format&fit=crop&w=800&q=80" alt="Chocolatín" loading="lazy">
+          </div>
+          <div class="card-body">
+            <span class="category">Repostería</span>
+            <h3>Pain au Chocolat</h3>
+            <p>Masa hojaldrada rellena con dos barras de chocolate semi-amargo al 60% cacao.</p>
+            <div class="card-footer">
+              <span class="price">$38 <small>MXN</small></span>
+              <button type="button" class="select-btn">Añadir al pedido</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Producto 4 -->
+        <article class="bakery-card" data-product="Baguette de Masa Madre Rústica" data-price="55">
+          <div class="card-image">
+            <span class="card-badge organic">🌾 Masa Madre</span>
+            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80" alt="Baguette rústica" loading="lazy">
+          </div>
+          <div class="card-body">
+            <span class="category">Pan Salado & Rústico</span>
+            <h3>Baguette Rústica (400g)</h3>
+            <p>Fermentación en frío de 36 horas. Corteza crujiente, miga aireada e intensa acidez suave.</p>
+            <div class="card-footer">
+              <span class="price">$55 <small>MXN</small></span>
+              <button type="button" class="select-btn">Añadir al pedido</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Producto 5 -->
+        <article class="bakery-card" data-product="Caja Degustación Miga & Miel (6 Pzs)" data-price="180">
+          <div class="card-image">
+            <span class="card-badge promo">🎁 Más Recomendado</span>
+            <img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&fit=crop&w=800&q=80" alt="Caja surtida" loading="lazy">
+          </div>
+          <div class="card-body">
+            <span class="category">Paquetes Especiales</span>
+            <h3>Caja Degustación del Creador</h3>
+            <p>Incluye 2 Croissants, 2 Chocolatines, 1 Concha y 1 Rollo de Canela en empaque para regalo.</p>
+            <div class="card-footer">
+              <span class="price">$180 <small>MXN</small></span>
+              <button type="button" class="select-btn">Añadir al pedido</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Producto 6 -->
+        <article class="bakery-card" data-product="Rollo de Canela Glaseado" data-price="42">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1509365465985-25d11c17e812?auto=format&fit=crop&w=800&q=80" alt="Rollo de Canela" loading="lazy">
+          </div>
+          <div class="card-body">
+            <span class="category">Especialidad de la casa</span>
+            <h3>Rollo de Canela & Queso Crema</h3>
+            <p>Masa tierna impregnada de canela de Saigón y baño espeso de queso crema suave.</p>
+            <div class="card-footer">
+              <span class="price">$42 <small>MXN</small></span>
+              <button type="button" class="select-btn">Añadir al pedido</button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Resumen de Pedido Flotante / CTA -->
+      <div class="order-summary-box" id="pedido">
+        <div class="summary-info">
+          <h3>Tu Selección de Panes (<span id="cartCount">0</span>)</h3>
+          <p id="cartItemsText">Ninguna pieza seleccionada. Toca en los panes que deseas ordenar.</p>
+        </div>
+        <div class="summary-action">
+          <div class="total-price">
+            <span>Total aprox:</span>
+            <strong id="cartTotal">$0 MXN</strong>
+          </div>
+          <button type="button" class="btn-whatsapp-pro" id="btnOrdenar">
+            <svg class="ws-icon" viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+              <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.964 9.964 0 001.333 4.993L2 22l5.233-1.237a9.982 9.982 0 004.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.668-1.037-5.176-2.922-7.062A9.925 9.925 0 0012.012 2zm0 18.156h-.003a8.31 8.31 0 01-4.242-1.166l-.304-.181-3.155.746.825-3.076-.198-.315a8.288 8.288 0 01-1.272-4.38c.001-4.582 3.729-8.309 8.312-8.309 2.219 0 4.304.865 5.872 2.435a8.267 8.267 0 012.43 5.875c-.001 4.583-3.729 8.31-8.312 8.31z"/>
+            </svg>
+            Enviar Pedido por WhatsApp
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 <strong>Miga & Miel Panadería Artesanal</strong>. Calidad e Higiene Garantizada.</p>
+  </footer>
+
+  <!-- Script Inteligente -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const TELEFONO_WHATSAPP = "528611265737"; // Teléfono del cliente
+      const cards = document.querySelectorAll(".bakery-card");
+      const cartCount = document.getElementById("cartCount");
+      const cartItemsText = document.getElementById("cartItemsText");
+      const cartTotal = document.getElementById("cartTotal");
+      const btnOrdenar = document.getElementById("btnOrdenar");
+
+      let selectedProducts = [];
+
+      cards.forEach(card => {
+        card.addEventListener("click", () => {
+          card.classList.toggle("selected");
+          const btn = card.querySelector(".select-btn");
+          
+          if (card.classList.contains("selected")) {
+            btn.innerText = "✓ Seleccionado";
+          } else {
+            btn.innerText = "Añadir al pedido";
+          }
+
+          updateCart();
+        });
+      });
+
+      function updateCart() {
+        selectedProducts = [];
+        let total = 0;
+
+        document.querySelectorAll(".bakery-card.selected").forEach(card => {
+          const title = card.getAttribute("data-product");
+          const price = parseFloat(card.getAttribute("data-price"));
+          selectedProducts.push({ title, price });
+          total += price;
+        });
+
+        cartCount.innerText = selectedProducts.length;
+        cartTotal.innerText = `$${total} MXN`;
+
+        if (selectedProducts.length > 0) {
+          const names = selectedProducts.map(p => p.title).join(", ");
+          cartItemsText.innerText = `Seleccionados: ${names}`;
+        } else {
+          cartItemsText.innerText = "Ninguna pieza seleccionada. Toca en los panes que deseas ordenar.";
+        }
+      }
+
+      btnOrdenar.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        let mensaje = "¡Hola Miga & Miel! 🥐 Me gustaría hacer el siguiente pedido:\n\n";
+
+        if (selectedProducts.length > 0) {
+          selectedProducts.forEach((item, index) => {
+            mensaje += `${index + 1}. ${item.title} ($${item.price} MXN)\n`;
+          });
+
+          const total = selectedProducts.reduce((acc, p) => acc + p.price, 0);
+          mensaje += `\n💰 *Total estimado: $${total} MXN*`;
+          mensaje += "\n\n¿Me confirman disponibilidad y tiempo de entrega/recolección?";
+        } else {
+          mensaje += "Hola, me gustaría consultar la variedad de pan dulce e individual disponible para hoy.";
+        }
+
+        const urlWhatsApp = `https://api.whatsapp.com/send?phone=${TELEFONO_WHATSAPP}&text=${encodeURIComponent(mensaje)}`;
+        window.open(urlWhatsApp, "_blank");
+      });
+    });
+  </script>
+</body>
+</html>
