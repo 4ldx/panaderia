@@ -1,286 +1,467 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Miga & Miel | Panadería & Repostería Artesanal</title>
+  <title>Miga & Miel | Repostería Artesanal & Panadería de Masa Madre</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap" rel="stylesheet">
+  
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
-  <!-- Top Bar Infobar -->
-  <div class="top-bar">
-    <span>✨ Recién horneado a las 7:00 AM y 4:00 PM | Pedidos para eventos disponibles</span>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              cream: '#FFFDF9',
+              dark: '#2A1810',
+              accent: '#D97706',
+              gold: '#F59E0B',
+              soft: '#F3ECE3',
+              muted: '#7A6B63',
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-brand-cream text-brand-dark font-sans antialiased overflow-x-hidden selection:bg-brand-accent selection:text-white">
+
+  <!-- Top Announcement Bar -->
+  <div class="bg-brand-dark text-brand-soft text-xs py-2 px-6 flex justify-between items-center border-b border-brand-accent/20">
+    <div class="flex items-center gap-2">
+      <i class="ph-bold ph-sparkle text-brand-gold"></i>
+      <span>Horneado fresco diariamente con 100% Masa Madre Orgánica</span>
+    </div>
+    <div class="hidden md:flex items-center gap-6 text-xs text-brand-soft/80">
+      <span><i class="ph-bold ph-clock mr-1"></i> Mar - Dom: 7:00 AM - 8:00 PM</span>
+      <a href="https://api.whatsapp.com/send?phone=528611265737&text=Hola,%20quisiera%20consultar%20pedidos%20especiales." target="_blank" class="hover:text-brand-gold transition-colors">Atención a Eventos ↗</a>
+    </div>
   </div>
 
-  <!-- Encabezado Principal -->
-  <header class="site-header">
-    <div class="header-inner">
-      <a href="#home" class="brand">
-        <span class="brand-sub">Artisanal Bakery</span>
-        Miga & Miel
+  <!-- Header -->
+  <header class="sticky top-0 z-40 bg-brand-cream/90 backdrop-blur-md border-b border-brand-dark/10 transition-all">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-brand-accent flex items-center justify-center text-white text-xl font-serif font-bold shadow-md">
+          M
+        </div>
+        <div>
+          <span class="font-serif font-bold text-2xl tracking-tight text-brand-dark block leading-none">Miga & Miel</span>
+          <span class="text-[10px] uppercase tracking-widest text-brand-accent font-semibold">Repostería & Bakery</span>
+        </div>
       </a>
-      <nav class="nav-menu">
-        <a href="#home">Inicio</a>
-        <a href="#menu">Surtido</a>
-        <a href="#experiencia">Nuestra Esencia</a>
-        <a href="#pedido" class="nav-btn">Encargar Ahora</a>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-brand-muted">
+        <a href="#menu" class="hover:text-brand-accent transition-colors">Menú Artesanal</a>
+        <a href="#box-builder" class="hover:text-brand-accent transition-colors flex items-center gap-1.5">
+          <i class="ph-bold ph-package text-brand-accent"></i> Armador de Cajas
+        </a>
+        <a href="#cake-calculator" class="hover:text-brand-accent transition-colors">Pasteles de Evento</a>
       </nav>
+
+      <a href="#box-builder" class="bg-brand-dark hover:bg-brand-accent text-white px-5 py-2.5 rounded-full text-xs font-bold tracking-wider uppercase transition-all shadow-md hover:shadow-lg flex items-center gap-2">
+        <i class="ph-bold ph-shopping-bag"></i> Armar Mi Caja
+      </a>
     </div>
   </header>
 
-  <main>
-    <!-- Hero Section con fondo cinematográfico -->
-    <section class="hero" id="home">
-      <div class="hero-overlay"></div>
-      <div class="hero-content">
-        <span class="badge-gold">Tradición y Sabor</span>
-        <h1>El placer del pan recién horneado</h1>
-        <p class="hero-subtitle">Elaborado diariamente con masa madre natural, mantequilla de primera y fermentación lenta de 24 horas.</p>
-        <div class="hero-actions">
-          <a href="#menu" class="btn-gold">Explorar Menú</a>
-          <a href="#pedido" class="btn-outline">Hacer Pedido Directo</a>
+  <!-- Hero Section -->
+  <section class="relative min-h-[85vh] flex items-center py-16 px-6 bg-gradient-to-b from-brand-soft/40 via-brand-cream to-brand-cream">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-7 space-y-6">
+        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-accent/10 text-brand-accent text-xs font-extrabold uppercase tracking-widest border border-brand-accent/20">
+          <i class="ph-bold ph-fire"></i> Masticabilidad & Sabor Incomparable
+        </span>
+        <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-brand-dark">
+          Panadería de fermentación lenta & <span class="italic text-brand-accent">repostería artesanal</span>
+        </h1>
+        <p class="text-brand-muted text-base sm:text-lg max-w-2xl leading-relaxed">
+          Unimos técnicas francesas clásicas con insumos locales orgánicos. Desde hojaldres crujientes hasta pasteles de alta costura diseñados para momentos memorables.
+        </p>
+        <div class="flex flex-wrap gap-4 pt-2">
+          <a href="#box-builder" class="bg-brand-accent hover:bg-brand-dark text-white px-7 py-3.5 rounded-full text-sm font-bold tracking-wide uppercase transition-all shadow-lg hover:shadow-xl flex items-center gap-2">
+            <i class="ph-bold ph-gift"></i> Armar Caja Surtida
+          </a>
+          <a href="#cake-calculator" class="bg-white hover:bg-brand-soft text-brand-dark border border-brand-dark/15 px-7 py-3.5 rounded-full text-sm font-bold tracking-wide transition-all shadow-sm">
+            Cotizar Pastel de Evento ↗
+          </a>
         </div>
       </div>
-    </section>
-
-    <!-- Barra de Ventajas / Confianza -->
-    <section class="features-bar">
-      <div class="feature-item">
-        <div class="feature-icon">🌾</div>
-        <div>
-          <h4>100% Orgánico</h4>
-          <p>Harinas seleccionadas sin aditivos</p>
+      <div class="lg:col-span-5 relative">
+        <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+          <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1000&q=85" alt="Pan artesanal y repostería" class="w-full h-[460px] object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/70 via-transparent to-transparent"></div>
+          <div class="absolute bottom-6 left-6 right-6 text-white p-4 rounded-2xl bg-brand-dark/40 backdrop-blur-md border border-white/20">
+            <p class="font-serif italic text-sm">"La paciencia de la masa madre hace la diferencia entre comer pan y saborear arte."</p>
+            <span class="text-[10px] text-brand-gold uppercase tracking-widest font-bold mt-1 block">— Chef Repostero Principal</span>
+          </div>
         </div>
       </div>
-      <div class="feature-item">
-        <div class="feature-icon">🔥</div>
-        <div>
-          <h4>Horneo Diario</h4>
-          <p>Dos horneadas al día garantizadas</p>
+    </div>
+  </section>
+
+  <!-- Interactive Box Builder -->
+  <section id="box-builder" class="py-20 px-6 bg-brand-soft/30 border-y border-brand-dark/5">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-brand-accent font-bold text-xs uppercase tracking-widest">Experiencia Interactiva</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold mt-2 text-brand-dark">Armador de Cajas Surtidas</h2>
+        <p class="text-brand-muted text-sm sm:text-base mt-2">Elige el tamaño de tu caja y personalízala con tus piezas favoritas para una entrega fresca o un regalo inolvidable.</p>
+      </div>
+
+      <!-- Steps & Controls -->
+      <div class="bg-white p-6 sm:p-8 rounded-3xl shadow-xl border border-brand-dark/5 max-w-5xl mx-auto">
+        <div class="mb-8">
+          <label class="block text-xs font-extrabold uppercase tracking-widest text-brand-muted mb-3">1. Selecciona el tamaño de tu caja:</label>
+          <div class="grid grid-cols-3 gap-4">
+            <button onclick="selectBoxSize(6)" id="btn-size-6" class="box-size-btn border-2 border-brand-accent bg-brand-accent/5 text-brand-dark p-4 rounded-2xl text-center transition-all">
+              <span class="block font-serif font-bold text-xl">6 Piezas</span>
+              <span class="text-xs text-brand-muted mt-1 block">Caja Personal / Pareja</span>
+            </button>
+            <button onclick="selectBoxSize(12)" id="btn-size-12" class="box-size-btn border-2 border-brand-dark/10 hover:border-brand-accent/50 text-brand-dark p-4 rounded-2xl text-center transition-all">
+              <span class="block font-serif font-bold text-xl">12 Piezas</span>
+              <span class="text-xs text-brand-muted mt-1 block">Caja Familiar / Oficina</span>
+            </button>
+            <button onclick="selectBoxSize(24)" id="btn-size-24" class="box-size-btn border-2 border-brand-dark/10 hover:border-brand-accent/50 text-brand-dark p-4 rounded-2xl text-center transition-all">
+              <span class="block font-serif font-bold text-xl">24 Piezas</span>
+              <span class="text-xs text-brand-muted mt-1 block">Caja Festiva / Eventos</span>
+            </button>
+          </div>
         </div>
-      </div>
-      <div class="feature-item">
-        <div class="feature-icon">🛵</div>
-        <div>
-          <h4>Entrega Express</h4>
-          <p>Pedido directo a tu mesa o evento</p>
+
+        <!-- Items Picker Grid -->
+        <div class="mb-8">
+          <div class="flex justify-between items-center mb-4">
+            <label class="text-xs font-extrabold uppercase tracking-widest text-brand-muted">2. Selecciona las piezas de tu caja:</label>
+            <span class="text-xs font-bold text-brand-accent" id="counter-status">0 / 6 piezas seleccionadas</span>
+          </div>
+          
+          <!-- Progress Bar -->
+          <div class="w-full bg-brand-soft rounded-full h-2.5 mb-6 overflow-hidden">
+            <div id="progress-bar" class="bg-brand-accent h-2.5 rounded-full transition-all duration-300" style="width: 0%"></div>
+          </div>
+
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4" id="box-items-container">
+            <!-- Dynamic JS Items -->
+          </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Sección del Menú / Catálogo -->
-    <section class="bakery-section" id="menu">
-      <div class="section-title">
-        <span class="sub-heading">Edición Diaria</span>
-        <h2>Nuestra Selección de Hoy</h2>
-        <div class="divider"></div>
-        <p class="section-desc">Toca o haz clic en las piezas que deseas ordenar para armar tu caja personalizada.</p>
-      </div>
-
-      <div class="bakery-grid">
-
-        <!-- Producto 1 -->
-        <article class="bakery-card" data-product="Croissant de Mantequilla" data-price="35">
-          <div class="card-image">
-            <span class="card-badge top-seller">⭐ Más Vendido</span>
-            <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=800&q=80" alt="Croissant artesanal" loading="lazy">
+        <!-- Order Summary Footer -->
+        <div class="bg-brand-dark text-white p-6 rounded-2xl flex flex-col md:flex-row justify-between items-center gap-4">
+          <div>
+            <span class="text-xs text-brand-soft/70 uppercase tracking-wider block">Total Estimado de la Caja</span>
+            <span class="font-serif text-3xl font-bold text-brand-gold" id="total-price">$0.00 MXN</span>
           </div>
-          <div class="card-body">
-            <span class="category">Hojaldre Premium</span>
-            <h3>Croissant de Mantequilla</h3>
-            <p>Hojaldre francés crujiente con láminas de mantequilla europea y alveolado perfecto.</p>
-            <div class="card-footer">
-              <span class="price">$35 <small>MXN</small></span>
-              <button type="button" class="select-btn">Añadir al pedido</button>
-            </div>
-          </div>
-        </article>
-
-        <!-- Producto 2 -->
-        <article class="bakery-card" data-product="Concha Tradicional de Vainilla" data-price="20">
-          <div class="card-image">
-            <span class="card-badge classic">Tradicional</span>
-            <img src="https://images.unsplash.com/photo-1586444248902-2f64eddc13df?auto=format&fit=crop&w=800&q=80" alt="Concha de pan dulce" loading="lazy">
-          </div>
-          <div class="card-body">
-            <span class="category">Pan Dulce Mexicano</span>
-            <h3>Concha de Vainilla y Chocolate</h3>
-            <p>Masa brioche esponjosa aromatizada con ralladura de naranja y costra de azucar fina.</p>
-            <div class="card-footer">
-              <span class="price">$20 <small>MXN</small></span>
-              <button type="button" class="select-btn">Añadir al pedido</button>
-            </div>
-          </div>
-        </article>
-
-        <!-- Producto 3 -->
-        <article class="bakery-card" data-product="Chocolatín con Chocolate Belga" data-price="38">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec?auto=format&fit=crop&w=800&q=80" alt="Chocolatín" loading="lazy">
-          </div>
-          <div class="card-body">
-            <span class="category">Repostería</span>
-            <h3>Pain au Chocolat</h3>
-            <p>Masa hojaldrada rellena con dos barras de chocolate semi-amargo al 60% cacao.</p>
-            <div class="card-footer">
-              <span class="price">$38 <small>MXN</small></span>
-              <button type="button" class="select-btn">Añadir al pedido</button>
-            </div>
-          </div>
-        </article>
-
-        <!-- Producto 4 -->
-        <article class="bakery-card" data-product="Baguette de Masa Madre Rústica" data-price="55">
-          <div class="card-image">
-            <span class="card-badge organic">🌾 Masa Madre</span>
-            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80" alt="Baguette rústica" loading="lazy">
-          </div>
-          <div class="card-body">
-            <span class="category">Pan Salado & Rústico</span>
-            <h3>Baguette Rústica (400g)</h3>
-            <p>Fermentación en frío de 36 horas. Corteza crujiente, miga aireada e intensa acidez suave.</p>
-            <div class="card-footer">
-              <span class="price">$55 <small>MXN</small></span>
-              <button type="button" class="select-btn">Añadir al pedido</button>
-            </div>
-          </div>
-        </article>
-
-        <!-- Producto 5 -->
-        <article class="bakery-card" data-product="Caja Degustación Miga & Miel (6 Pzs)" data-price="180">
-          <div class="card-image">
-            <span class="card-badge promo">🎁 Más Recomendado</span>
-            <img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&fit=crop&w=800&q=80" alt="Caja surtida" loading="lazy">
-          </div>
-          <div class="card-body">
-            <span class="category">Paquetes Especiales</span>
-            <h3>Caja Degustación del Creador</h3>
-            <p>Incluye 2 Croissants, 2 Chocolatines, 1 Concha y 1 Rollo de Canela en empaque para regalo.</p>
-            <div class="card-footer">
-              <span class="price">$180 <small>MXN</small></span>
-              <button type="button" class="select-btn">Añadir al pedido</button>
-            </div>
-          </div>
-        </article>
-
-        <!-- Producto 6 -->
-        <article class="bakery-card" data-product="Rollo de Canela Glaseado" data-price="42">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1509365465985-25d11c17e812?auto=format&fit=crop&w=800&q=80" alt="Rollo de Canela" loading="lazy">
-          </div>
-          <div class="card-body">
-            <span class="category">Especialidad de la casa</span>
-            <h3>Rollo de Canela & Queso Crema</h3>
-            <p>Masa tierna impregnada de canela de Saigón y baño espeso de queso crema suave.</p>
-            <div class="card-footer">
-              <span class="price">$42 <small>MXN</small></span>
-              <button type="button" class="select-btn">Añadir al pedido</button>
-            </div>
-          </div>
-        </article>
-
-      </div>
-
-      <!-- Resumen de Pedido Flotante / CTA -->
-      <div class="order-summary-box" id="pedido">
-        <div class="summary-info">
-          <h3>Tu Selección de Panes (<span id="cartCount">0</span>)</h3>
-          <p id="cartItemsText">Ninguna pieza seleccionada. Toca en los panes que deseas ordenar.</p>
-        </div>
-        <div class="summary-action">
-          <div class="total-price">
-            <span>Total aprox:</span>
-            <strong id="cartTotal">$0 MXN</strong>
-          </div>
-          <button type="button" class="btn-whatsapp-pro" id="btnOrdenar">
-            <svg class="ws-icon" viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
-              <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.964 9.964 0 001.333 4.993L2 22l5.233-1.237a9.982 9.982 0 004.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.668-1.037-5.176-2.922-7.062A9.925 9.925 0 0012.012 2zm0 18.156h-.003a8.31 8.31 0 01-4.242-1.166l-.304-.181-3.155.746.825-3.076-.198-.315a8.288 8.288 0 01-1.272-4.38c.001-4.582 3.729-8.309 8.312-8.309 2.219 0 4.304.865 5.872 2.435a8.267 8.267 0 012.43 5.875c-.001 4.583-3.729 8.31-8.312 8.31z"/>
-            </svg>
-            Enviar Pedido por WhatsApp
+          <button onclick="sendBoxOrder()" id="btn-send-box" disabled class="opacity-50 cursor-not-allowed bg-brand-accent hover:bg-brand-gold text-white px-8 py-3.5 rounded-xl font-bold text-sm tracking-wider uppercase transition-all flex items-center gap-2">
+            <i class="ph-bold ph-whatsapp-logo text-lg"></i> Pedir Caja por WhatsApp
           </button>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
-  <footer class="site-footer">
-    <p>© 2026 <strong>Miga & Miel Panadería Artesanal</strong>. Calidad e Higiene Garantizada.</p>
+  <!-- Menu Section with Dynamic Inspector -->
+  <section id="menu" class="py-20 px-6 max-w-7xl mx-auto">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b border-brand-dark/10 pb-6">
+      <div>
+        <span class="text-brand-accent font-bold text-xs uppercase tracking-widest">Colección Diaria</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold mt-1 text-brand-dark">Catálogo de Repostería & Pan</h2>
+      </div>
+      <div class="flex gap-2 mt-4 md:mt-0 overflow-x-auto pb-2">
+        <button onclick="filterCategory('all')" class="cat-filter active px-4 py-2 rounded-full text-xs font-bold bg-brand-dark text-white">Todos</button>
+        <button onclick="filterCategory('panaderia')" class="cat-filter px-4 py-2 rounded-full text-xs font-bold bg-brand-soft text-brand-muted hover:bg-brand-accent hover:text-white transition-colors">Masa Madre</button>
+        <button onclick="filterCategory('reposteria')" class="cat-filter px-4 py-2 rounded-full text-xs font-bold bg-brand-soft text-brand-muted hover:bg-brand-accent hover:text-white transition-colors">Repostería Fina</button>
+        <button onclick="filterCategory('hojaldre')" class="cat-filter px-4 py-2 rounded-full text-xs font-bold bg-brand-soft text-brand-muted hover:bg-brand-accent hover:text-white transition-colors">Hojaldres</button>
+      </div>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8" id="menu-grid">
+      <!-- Dynamic JS Menu Cards -->
+    </div>
+  </section>
+
+  <!-- Cake Event Calculator -->
+  <section id="cake-calculator" class="py-20 px-6 bg-brand-dark text-white relative overflow-hidden">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-5 space-y-6">
+        <span class="text-brand-gold text-xs font-bold uppercase tracking-widest">Diseño a la Medida</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold leading-tight">Calculadora de Pasteles para Eventos</h2>
+        <p class="text-brand-soft/80 text-sm leading-relaxed">
+          Diseñamos pasteles exclusivos para bodas, aniversarios y celebraciones corporativas. Calcula un estimado instantáneo según tu número de invitados y estilo.
+        </p>
+      </div>
+
+      <div class="lg:col-span-7 bg-white/5 backdrop-blur-md p-8 rounded-3xl border border-white/10 space-y-6">
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-brand-gold mb-2">Número de Porciones / Invitados</label>
+            <input type="number" id="cake-portions" value="30" min="10" max="300" onchange="calculateCake()" oninput="calculateCake()" class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-gold text-sm">
+          </div>
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-brand-gold mb-2">Sabor del Bizcocho</label>
+            <select id="cake-flavor" onchange="calculateCake()" class="w-full bg-brand-dark border border-white/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-gold text-sm">
+              <option value="1">Vainilla Bourbon & Frutos Rojos</option>
+              <option value="1.1">Chocolate Belga 70% & Caramelo Salado</option>
+              <option value="1.15">Red Velvet & Cream Cheese Gourmet</option>
+              <option value="1.2">Zanahoria, Nuez & Especias Francesas</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-brand-gold mb-2">Estilo de Decoración</label>
+            <select id="cake-style" onchange="calculateCake()" class="w-full bg-brand-dark border border-white/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-gold text-sm">
+              <option value="1">Naked Cake con Flores Naturales</option>
+              <option value="1.2">Coctelería & Acabado Texturizado</option>
+              <option value="1.35">Diseño Editorial con Hoja de Oro 24K</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-brand-gold mb-2">Pisos Estimados</label>
+            <input type="text" id="cake-tiers" readonly value="2 Pisos" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white/70 text-sm font-bold">
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <div>
+            <span class="text-xs text-brand-soft/60 uppercase tracking-wider block">Presupuesto Estimado</span>
+            <span class="font-serif text-3xl font-bold text-brand-gold" id="cake-total">$1,800 MXN</span>
+          </div>
+          <button onclick="sendCakeQuote()" class="bg-brand-accent hover:bg-brand-gold text-white px-6 py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2">
+            <i class="ph-bold ph-paper-plane-tilt"></i> Solicitar Muestra & Cotización
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Modal Inspector -->
+  <div id="product-modal" class="fixed inset-0 bg-brand-dark/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 relative shadow-2xl overflow-hidden border border-brand-dark/10">
+      <button onclick="closeModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-brand-soft hover:bg-brand-accent hover:text-white flex items-center justify-center transition-colors">
+        <i class="ph-bold ph-x"></i>
+      </button>
+      
+      <div id="modal-content">
+        <!-- Dynamic Modal Content -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-brand-dark text-white border-t border-white/10 py-12 px-6">
+    <div class="max-w-7xl mx-auto text-center space-y-4">
+      <h3 class="font-serif text-2xl font-bold">Miga & Miel</h3>
+      <p class="text-xs text-brand-soft/60 max-w-md mx-auto">Repostería fina, panadería artesanal y diseño de eventos gourmet. Todos los derechos reservados © 2026.</p>
+      <div class="pt-4 border-t border-white/5 text-[11px] text-brand-soft/40">
+        Desarrollado bajo el estándar <strong>WaaS Completed</strong> por <strong>Black Gold Digital</strong>.
+      </div>
+    </div>
   </footer>
 
-  <!-- Script Inteligente -->
+  <!-- App Script -->
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const TELEFONO_WHATSAPP = "528611265737"; // Teléfono del cliente
-      const cards = document.querySelectorAll(".bakery-card");
-      const cartCount = document.getElementById("cartCount");
-      const cartItemsText = document.getElementById("cartItemsText");
-      const cartTotal = document.getElementById("cartTotal");
-      const btnOrdenar = document.getElementById("btnOrdenar");
+    const itemsData = [
+      { id: '1', name: 'Croissant Tradicional de Mantequilla', category: 'hojaldre', price: 45, img: 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=600&q=80', desc: 'Hojaldre francés fermentado por 36 horas con mantequilla de alta grasa.', allergens: ['Lácteos', 'Gluten'] },
+      { id: '2', name: 'Chocolatín con Chocolate Belga 70%', category: 'hojaldre', price: 50, img: 'https://images.unsplash.com/photo-1608198093002-ad4e005484ec?auto=format&fit=crop&w=600&q=80', desc: 'Masa de hojaldre crujiente rellena con dos barras de chocolate belga oscuro.', allergens: ['Lácteos', 'Gluten', 'Soya'] },
+      { id: '3', name: 'Hogaza de Masa Madre Madre Silvestre', category: 'panaderia', price: 110, img: 'https://images.unsplash.com/photo-1589367920969-ab8e050bbb04?auto=format&fit=crop&w=600&q=80', desc: 'Harinas orgánicas de trigo integral, hidratación al 80% y fermentación natural.', allergens: ['Gluten'] },
+      { id: '4', name: 'Tartaleta de Frutos Rojos & Crema Pastelera', category: 'reposteria', price: 85, img: 'https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=600&q=80', desc: 'Base sablée crujiente con crema de vainilla de papantla y frutos de estación.', allergens: ['Lácteos', 'Gluten', 'Huevo'] },
+      { id: '5', name: 'Muffin de Arándanos & Crumble de Almendra', category: 'reposteria', price: 48, img: 'https://images.unsplash.com/photo-1607958996333-41aef7caefaa?auto=format&fit=crop&w=600&q=80', desc: 'Bizcocho esponjoso repleto de arándanos frescos y cubierta crujiente de almendras.', allergens: ['Lácteos', 'Gluten', 'Frutos Secos'] },
+      { id: '6', name: 'Pan de Campo con Semillas de Girasol', category: 'panaderia', price: 120, img: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80', desc: 'Corteza gruesa y crujiente repleta de semillas tostadas de girasol y sésamo.', allergens: ['Gluten', 'Sésamo'] }
+    ];
 
-      let selectedProducts = [];
+    let currentBoxCapacity = 6;
+    let selectedBoxItems = {};
 
-      cards.forEach(card => {
-        card.addEventListener("click", () => {
-          card.classList.toggle("selected");
-          const btn = card.querySelector(".select-btn");
-          
-          if (card.classList.contains("selected")) {
-            btn.innerText = "✓ Seleccionado";
-          } else {
-            btn.innerText = "Añadir al pedido";
-          }
+    function initBoxItems() {
+      const container = document.getElementById('box-items-container');
+      container.innerHTML = itemsData.map(item => `
+        <div class="flex items-center justify-between p-3 rounded-2xl border border-brand-dark/10 bg-brand-cream/50">
+          <div class="flex items-center gap-3">
+            <img src="${item.img}" class="w-12 h-12 rounded-xl object-cover" alt="${item.name}">
+            <div>
+              <h4 class="font-serif font-bold text-xs text-brand-dark leading-tight">${item.name}</h4>
+              <span class="text-[11px] text-brand-accent font-bold">$${item.price} MXN</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="updateItemQty('${item.id}', -1)" class="w-7 h-7 rounded-lg bg-brand-soft hover:bg-brand-accent hover:text-white flex items-center justify-center font-bold text-xs">-</button>
+            <span id="qty-${item.id}" class="text-xs font-bold w-4 text-center">0</span>
+            <button onclick="updateItemQty('${item.id}', 1)" class="w-7 h-7 rounded-lg bg-brand-soft hover:bg-brand-accent hover:text-white flex items-center justify-center font-bold text-xs">+</button>
+          </div>
+        </div>
+      `).join('');
+    }
 
-          updateCart();
-        });
+    function selectBoxSize(size) {
+      currentBoxCapacity = size;
+      document.querySelectorAll('.box-size-btn').forEach(btn => {
+        btn.classList.remove('border-brand-accent', 'bg-brand-accent/5');
+        btn.classList.add('border-brand-dark/10');
+      });
+      document.getElementById(`btn-size-${size}`).classList.add('border-brand-accent', 'bg-brand-accent/5');
+      document.getElementById(`btn-size-${size}`).classList.remove('border-brand-dark/10');
+      updateBoxState();
+    }
+
+    function updateItemQty(id, delta) {
+      const currentQty = selectedBoxItems[id] || 0;
+      const totalSelected = Object.values(selectedBoxItems).reduce((a, b) => a + b, 0);
+
+      if (delta > 0 && totalSelected >= currentBoxCapacity) return;
+      if (currentQty + delta < 0) return;
+
+      selectedBoxItems[id] = currentQty + delta;
+      if (selectedBoxItems[id] === 0) delete selectedBoxItems[id];
+
+      document.getElementById(`qty-${id}`).innerText = selectedBoxItems[id] || 0;
+      updateBoxState();
+    }
+
+    function updateBoxState() {
+      const totalSelected = Object.values(selectedBoxItems).reduce((a, b) => a + b, 0);
+      let totalPrice = 0;
+
+      Object.keys(selectedBoxItems).forEach(id => {
+        const item = itemsData.find(i => i.id === id);
+        totalPrice += item.price * selectedBoxItems[id];
       });
 
-      function updateCart() {
-        selectedProducts = [];
-        let total = 0;
+      document.getElementById('counter-status').innerText = `${totalSelected} / ${currentBoxCapacity} piezas seleccionadas`;
+      document.getElementById('progress-bar').style.width = `${(totalSelected / currentBoxCapacity) * 100}%`;
+      document.getElementById('total-price').innerText = `$${totalPrice.toFixed(2)} MXN`;
 
-        document.querySelectorAll(".bakery-card.selected").forEach(card => {
-          const title = card.getAttribute("data-product");
-          const price = parseFloat(card.getAttribute("data-price"));
-          selectedProducts.push({ title, price });
-          total += price;
-        });
-
-        cartCount.innerText = selectedProducts.length;
-        cartTotal.innerText = `$${total} MXN`;
-
-        if (selectedProducts.length > 0) {
-          const names = selectedProducts.map(p => p.title).join(", ");
-          cartItemsText.innerText = `Seleccionados: ${names}`;
-        } else {
-          cartItemsText.innerText = "Ninguna pieza seleccionada. Toca en los panes que deseas ordenar.";
-        }
+      const sendBtn = document.getElementById('btn-send-box');
+      if (totalSelected === currentBoxCapacity) {
+        sendBtn.disabled = false;
+        sendBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+      } else {
+        sendBtn.disabled = true;
+        sendBtn.classList.add('opacity-50', 'cursor-not-allowed');
       }
+    }
 
-      btnOrdenar.addEventListener("click", (e) => {
-        e.preventDefault();
-
-        let mensaje = "¡Hola Miga & Miel! 🥐 Me gustaría hacer el siguiente pedido:\n\n";
-
-        if (selectedProducts.length > 0) {
-          selectedProducts.forEach((item, index) => {
-            mensaje += `${index + 1}. ${item.title} ($${item.price} MXN)\n`;
-          });
-
-          const total = selectedProducts.reduce((acc, p) => acc + p.price, 0);
-          mensaje += `\n💰 *Total estimado: $${total} MXN*`;
-          mensaje += "\n\n¿Me confirman disponibilidad y tiempo de entrega/recolección?";
-        } else {
-          mensaje += "Hola, me gustaría consultar la variedad de pan dulce e individual disponible para hoy.";
-        }
-
-        const urlWhatsApp = `https://api.whatsapp.com/send?phone=${TELEFONO_WHATSAPP}&text=${encodeURIComponent(mensaje)}`;
-        window.open(urlWhatsApp, "_blank");
+    function sendBoxOrder() {
+      let message = `Hola Miga %26 Miel, quisiera ordenar una Caja Surtida de ${currentBoxCapacity} piezas:%0A`;
+      Object.keys(selectedBoxItems).forEach(id => {
+        const item = itemsData.find(i => i.id === id);
+        message += `- ${selectedBoxItems[id]}x ${item.name}%0A`;
       });
-    });
+      message += `%0ATotal estimado: ${document.getElementById('total-price').innerText}`;
+      window.open(`https://api.whatsapp.com/send?phone=528611265737&text=${message}`, '_blank');
+    }
+
+    function initMenuCards() {
+      const grid = document.getElementById('menu-grid');
+      grid.innerHTML = itemsData.map(item => `
+        <div class="bg-white rounded-3xl overflow-hidden border border-brand-dark/5 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col group" data-category="${item.category}">
+          <div class="relative h-56 overflow-hidden">
+            <img src="${item.img}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="${item.name}">
+            <span class="absolute top-4 left-4 bg-brand-dark/80 backdrop-blur-md text-brand-gold text-[10px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full border border-white/10">${item.category}</span>
+          </div>
+          <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
+            <div>
+              <h3 class="font-serif font-bold text-lg text-brand-dark mb-1">${item.name}</h3>
+              <p class="text-brand-muted text-xs leading-relaxed line-clamp-2">${item.desc}</p>
+            </div>
+            <div class="flex items-center justify-between pt-4 border-t border-brand-dark/5">
+              <span class="font-serif font-bold text-lg text-brand-accent">$${item.price} MXN</span>
+              <button onclick="openModal('${item.id}')" class="text-xs font-bold text-brand-dark hover:text-brand-accent flex items-center gap-1 transition-colors">
+                Ver Ficha <i class="ph-bold ph-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function filterCategory(cat) {
+      document.querySelectorAll('.cat-filter').forEach(btn => {
+        btn.classList.remove('bg-brand-dark', 'text-white');
+        btn.classList.add('bg-brand-soft', 'text-brand-muted');
+      });
+      event.target.classList.add('bg-brand-dark', 'text-white');
+      event.target.classList.remove('bg-brand-soft', 'text-brand-muted');
+
+      document.querySelectorAll('#menu-grid > div').forEach(card => {
+        if (cat === 'all' || card.dataset.category === cat) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function calculateCake() {
+      const portions = parseInt(document.getElementById('cake-portions').value) || 30;
+      const flavorMult = parseFloat(document.getElementById('cake-flavor').value);
+      const styleMult = parseFloat(document.getElementById('cake-style').value);
+
+      const basePrice = portions * 50;
+      const total = basePrice * flavorMult * styleMult;
+
+      let tiers = '1 Piso';
+      if (portions > 40) tiers = '2 Pisos';
+      if (portions > 90) tiers = '3 Pisos';
+      if (portions > 180) tiers = '4 Pisos Impresionantes';
+
+      document.getElementById('cake-tiers').value = tiers;
+      document.getElementById('cake-total').innerText = `$${Math.round(total).toLocaleString()} MXN`;
+    }
+
+    function sendCakeQuote() {
+      const portions = document.getElementById('cake-portions').value;
+      const total = document.getElementById('cake-total').innerText;
+      const msg = `Hola Miga %26 Miel, me gustaría solicitar una cotización formal para un pastel de evento de ${portions} porciones. Estimado web: ${total}`;
+      window.open(`https://api.whatsapp.com/send?phone=528611265737&text=${msg}`, '_blank');
+    }
+
+    function openModal(id) {
+      const item = itemsData.find(i => i.id === id);
+      document.getElementById('modal-content').innerHTML = `
+        <img src="${item.img}" class="w-full h-48 object-cover rounded-2xl mb-4" alt="${item.name}">
+        <span class="text-[10px] font-bold text-brand-accent uppercase tracking-widest block mb-1">${item.category}</span>
+        <h3 class="font-serif font-bold text-2xl text-brand-dark mb-2">${item.name}</h3>
+        <p class="text-brand-muted text-sm leading-relaxed mb-4">${item.desc}</p>
+        <div class="mb-4">
+          <span class="text-xs font-extrabold uppercase tracking-widest text-brand-dark block mb-2">Alérgenos e Insumos:</span>
+          <div class="flex flex-wrap gap-2">
+            ${item.allergens.map(a => `<span class="bg-brand-soft text-brand-dark text-xs font-bold px-3 py-1 rounded-full border border-brand-dark/5">${a}</span>`).join('')}
+          </div>
+        </div>
+        <div class="flex justify-between items-center pt-4 border-t border-brand-dark/10">
+          <span class="font-serif font-bold text-2xl text-brand-accent">$${item.price} MXN</span>
+          <button onclick="closeModal()" class="bg-brand-dark text-white px-6 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider">Cerrar</button>
+        </div>
+      `;
+      document.getElementById('product-modal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('product-modal').classList.add('hidden');
+    }
+
+    window.onload = function() {
+      initBoxItems();
+      initMenuCards();
+      calculateCake();
+    };
   </script>
 </body>
 </html>
